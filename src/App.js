@@ -32,7 +32,7 @@ function App() {
   const play = (userChoice) => {
     console.log('선택됨!', userChoice);
     setUserSelect(choice[userChoice]);
-    let computerChoice = randomChoice();
+    const computerChoice = randomChoice();
     setComputerSelect(computerChoice)
     
     setResult(judgement(choice[userChoice], computerChoice))
@@ -42,11 +42,11 @@ function App() {
     // Math.random이라는 함수는 숫자만 리턴 가능
     // 객체 => 배열화 시키고
     // Math.random함수에서 리턴된 숫자를 배열에 인덱스랑 매치를 시켜서 랜덤 아이템을 뽑을 수 있다
-    let itemArray = Object.keys(choice); // 객체에 키값만 뽑아서 어레이로 만들어주는 함수
+    const itemArray = Object.keys(choice); // 객체에 키값만 뽑아서 어레이로 만들어주는 함수
     console.log('itemArray', itemArray);
-    let randomItem = Math.floor(Math.random() * itemArray.length);
+    const randomItem = Math.floor(Math.random() * itemArray.length);
     console.log('random value', randomItem);
-    let final = itemArray[randomItem]
+    const final = itemArray[randomItem]
     return choice[final] 
   }
   const judgement = (user, computer) => {
@@ -67,8 +67,8 @@ function App() {
   } 
 
   return (
-    <div>
-      <div className="main">
+    <div className="wrap">
+      <div className="box_wrap">
         <Box title="You" item={userSelect} result={result}/>
         {/* 과제1 memo 
         * 작성한 코드
@@ -78,7 +78,7 @@ function App() {
         */}
         <Box title="Computer" item={computerSelect} result={result}/>
       </div>
-      <div className="main">
+      <div className="btn_wrap">
           <button onClick={() => play("scissors")}>가위</button>
           <button onClick={() => play("rock")}>바위</button>
           <button onClick={() => play("paper")}>보</button>

@@ -1,11 +1,35 @@
+.wrap {
+  min-width: 280px;
+}
+
+.box_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  box-sizing: border-box;
+}
+
+
 .box {
+  position: relative;
+  flex: 1;
+  border: 1px solid black;
+  height: 0;
+  padding-top: calc((446/900) * 100%);
+}
+.box_inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid black;
-  width: 500px;
-  height: 500px;
 }
 
 .box.win {
@@ -15,20 +39,26 @@
   border: 1px solid red;
 }
 
+.img_wrap {
+  max-width: 250px;
+  max-height: 200px;
+}
 .item-img {
-  width: 300px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
-.main {
+.btn_wrap {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
+  max-width: 600px;
+  margin: 30px auto 0;
 }
-.main + .main {
-  margin-top: 30px;
-}
-.main button {
+
+
+.btn_wrap button {
   display: block;
   min-width: 66px;
   padding: 10px 20px;
@@ -38,7 +68,25 @@
   border: 1px solid #333;
   font-weight: 700;
 }
-.main button:hover {
+.btn_wrap button:hover {
   background: #333;
   color: #fff;
+}
+
+@media screen and (max-width: 760px) {
+  .box_wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    max-width: 375px;
+    box-sizing: border-box;
+  } 
+  .box {
+    padding-top: 100%;
+  }
+  .img_wrap {
+    max-width: 200px;
+    max-height: 150px;
+  }
 }
